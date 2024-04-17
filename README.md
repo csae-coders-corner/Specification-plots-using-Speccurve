@@ -67,3 +67,6 @@ The level() option specifies the desired confidence interval level.
 Other options include sort() which specifies how coefficient estimates are sorted (default is by estimate size) and the usual graph options.
 The example do-file contains code creating the included specification curve (Figure S4) from the paper “Perceptions of an Insufficient Government Response at the Onset of the COVID-19 Pandemic are Associated with Lower Mental Well-Being”. We make use of the data made publicly available by the authors of “Behaviors and Perceptions in the COVID-19 Pandemic” through the Open Science Foundation at [https://osf.io/3sn2k/](https://osf.io/3sn2k/). 
 
+**Lukas Hensel, Postdoctoral Research Fellow in Development Economics, Oxford
+Marc Witte, Research Associate at IZA, Bonn
+19 October 2020**
