@@ -1,3 +1,5 @@
+![CC Graphics 2024_Specificationplots](https://github.com/csae-coders-corner/Specification-plots-using-Speccurve/assets/148211163/3d71e8f1-c56f-4808-ba0d-10f8a0b147be)
+
 # Specification-plots-using-Speccurve
 Extensive robustness checks have become a requirement for empirical research. This often leads to Online Appendices with hundreds of result tables that are very hard to digest for readers and referees. Stata16’s speccurve command written by [Martin Eckhoff Andresen](https://sites.google.com/site/martineckhoffandresen/home) is an easy to use command that facilitates the generation of specification curves. The [command can be download from here] (https://github.com/martin-andresen/speccurve). Unfortunately, the command does not currently work with older versions of Stata. A specification curve plots a large number of regression coefficients and confidence intervals sorted by estimated impact from different specifications that allow the assessment of robustness in a single figure like the one included below.
 
