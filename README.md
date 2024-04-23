@@ -10,10 +10,11 @@ Creating specification curves requires two basic steps.
 
 First, you need to run and save all regressions you would like to be included in the specification curve. These can be different sets of control variables You will likely want to use loops run and store a large number of different specifications. In the example do-file we use a loop to run a regression with all combinates of a set of seven different control variables. To construct the loop we use the tokensize command to store variables in locals named as numbers (eg in the below code the local `1' will have the string value “age”).
 
-tokenize age educ_bin pers_extra pers_agree pers_consc pers_emost pers_opnex
+`tokenize age educ_bin pers_extra pers_agree pers_consc pers_emost pers_opnex`
 
 We then use a stacked loop to create a local that contains all control variables for a particular specification. In the loop we run the specification and store the regression results. Importantly, all variables including the treatment variable need to have the same name in all specifications (important if you would like to test for robustness with different treatment definitions). If we want to use the panel() option of speccurve, we also need to store additional variables in the regression results.  Below we present a simplified code snipped that does exactly this. 
 
+```
 loc no=0
 forvalues age=0/1 {
 	forvalues educ_bin=0/1 {
@@ -22,6 +23,7 @@ forvalues age=0/1 {
 				forvalues pers_consc=0/1 {
 					forvalues pers_emost=0/1 {
 						forvalues pers_opnex=0/1 {
+
 									
 ** Create local with string of control variable names in specific specification **
 loc controls
@@ -33,13 +35,15 @@ estadd scalar countryfe=0 // No fixed effect used
 eststo ols`no' // Store regression results
 loc ++no
 } } } } } } }
+```
 
 Fixed effects can either be included as additional control variables or using additional loops and commands like reghdfe (which is what we do in the example do-file). 
 
 Second, you can use the speccurve command once all regressions results are stored. We provide a brief overview over the syntax below (a more detailed version can be found in the excellent help file).
 
-speccurve *, param(lockdown) controls(title(control variables)) main(ols97) panel(countryfe) 
-level(95)
+```
+speccurve *, param(lockdown) controls(title(control variables)) main(ols97) panel(countryfe) level(95)
+```
 
 Speccurve uses regression results stored in Stata’s memory or in an external .ster file (the latter can be useful if running your model takes a long time). Here we use all specifications stored in the memory. 
 
